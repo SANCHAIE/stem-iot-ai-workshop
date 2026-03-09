@@ -20,7 +20,7 @@ stem-iot-ai-workshop/
 │   ├── 01_Blink/              # LED กระพริบ
 │   ├── 02_TrafficLight/       # ไฟจราจร 3 สี
 │   ├── 03_Button_LED/         # ปุ่มกดควบคุม LED
-│   ├── 04_DHT22/              # อ่านอุณหภูมิ/ความชื้น
+│   ├── 04_DHT11/              # อ่านอุณหภูมิ/ความชื้น
 │   ├── 05_LDR/                # อ่านค่าแสง
 │   ├── 06_IF_Condition/       # เงื่อนไข sensor → LED
 │   ├── 07_WebServer/          # ESP32 Web Server
@@ -42,7 +42,7 @@ stem-iot-ai-workshop/
 | 08.00 - 08.30 | ลงทะเบียน | - |
 | 08.30 - 08.45 | พิธีเปิด | - |
 | 08.45 - 09.45 | **กิจกรรมที่ 1:** พื้นฐาน LED + ปุ่มกด | `01_Blink` `02_TrafficLight` `03_Button_LED` |
-| 09.45 - 10.45 | **กิจกรรมที่ 2:** Sensor วัดสิ่งแวดล้อม | `04_DHT22` `05_LDR` `06_IF_Condition` |
+| 09.45 - 10.45 | **กิจกรรมที่ 2:** Sensor วัดสิ่งแวดล้อม | `04_DHT11` `05_LDR` `06_IF_Condition` |
 | 10.45 - 11.00 | พักอาหารว่าง | - |
 | 11.00 - 12.00 | **กิจกรรมที่ 3:** IoT (Web Server + ThingSpeak) | `07_WebServer` `08_ThingSpeak` |
 
@@ -64,7 +64,7 @@ stem-iot-ai-workshop/
 - Breadboard + สายจัมเปอร์
 - LED แดง/เหลือง/เขียว + ตัวต้านทาน 220Ω × 3
 - ปุ่มกด + ตัวต้านทาน 10kΩ
-- DHT22 (เซนเซอร์อุณหภูมิ/ความชื้น)
+- DHT11 (เซนเซอร์อุณหภูมิ/ความชื้น)
 - LDR + ตัวต้านทาน 10kΩ
 
 ---
@@ -80,7 +80,7 @@ stem-iot-ai-workshop/
 3. เลือก Board: **ESP32 Dev Module**
 
 ### Library ที่ต้องติดตั้ง
-- **DHT sensor library** by Adafruit (สำหรับ DHT22)
+- **DHT sensor library** by Adafruit (สำหรับ DHT11)
 - **ThingSpeak** by MathWorks (สำหรับ ThingSpeak)
 - **ArduinoJson** by Benoit Blanchon (สำหรับ ChatGPT API)
 - **WiFi** (มาพร้อม ESP32 board แล้ว)
@@ -112,9 +112,9 @@ ESP32 GPIO 15 → ปุ่มกด → GND (ใช้ INPUT_PULLUP)
 
 ### กิจกรรมที่ 4-6: Sensor
 ```
-DHT22 VCC  → 3.3V
-DHT22 DATA → ESP32 GPIO 14 (ต่อ pull-up 10kΩ ไป 3.3V)
-DHT22 GND  → GND
+DHT11 VCC  → 3.3V
+DHT11 DATA → ESP32 GPIO 14 (ต่อ pull-up 10kΩ ไป 3.3V)
+DHT11 GND  → GND
 
 LDR → 3.3V (ขาหนึ่ง)
 LDR → ESP32 GPIO 34 + ตัวต้านทาน 10kΩ → GND (voltage divider)

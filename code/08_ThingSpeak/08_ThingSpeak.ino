@@ -34,7 +34,7 @@ const char* apiKey = "YOUR_WRITE_API_KEY";   // ← Write API Key
 // ขา Pin
 #define DHTPIN  14
 #define LDR_PIN 34
-#define DHTTYPE DHT22
+#define DHTTYPE DHT11
 
 DHT dht(DHTPIN, DHTTYPE);
 WiFiClient client;
@@ -80,7 +80,7 @@ void loop() {
     int lightPercent = map(ldrValue, 0, 4095, 0, 100);
 
     if (isnan(temperature) || isnan(humidity)) {
-      Serial.println("❌ อ่าน DHT22 ไม่ได้!");
+      Serial.println("❌ อ่าน DHT11 ไม่ได้!");
       return;
     }
 

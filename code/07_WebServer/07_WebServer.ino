@@ -30,7 +30,7 @@ const char* password = "12345678";         // ← รหัสผ่าน
 #define LED_GREEN  5
 #define DHTPIN     14
 #define LDR_PIN    34
-#define DHTTYPE    DHT22
+#define DHTTYPE    DHT11
 
 DHT dht(DHTPIN, DHTTYPE);
 WebServer server(80);

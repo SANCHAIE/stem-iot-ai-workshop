@@ -29,7 +29,7 @@ const char* apiKey   = "sk-xxxxxxxxxxxxx";  // ← API Key จากอาจา
 // ขา Pin
 #define DHTPIN  14
 #define LDR_PIN 34
-#define DHTTYPE DHT22
+#define DHTTYPE DHT11
 #define BUTTON  15      // กดปุ่มเพื่อถาม AI
 
 DHT dht(DHTPIN, DHTTYPE);
@@ -120,7 +120,7 @@ void loop() {
     int lightPercent = map(ldrValue, 0, 4095, 0, 100);
 
     if (isnan(temperature) || isnan(humidity)) {
-      Serial.println("❌ อ่าน DHT22 ไม่ได้!");
+      Serial.println("❌ อ่าน DHT11 ไม่ได้!");
       delay(1000);
       return;
     }

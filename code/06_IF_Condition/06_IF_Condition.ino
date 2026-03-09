@@ -12,7 +12,7 @@
  * LED แดง   → GPIO 2 (เตือนร้อน)
  * LED เหลือง → GPIO 4 (เตือนมืด)
  * LED เขียว  → GPIO 5 (ปกติ)
- * DHT22      → GPIO 14
+ * DHT11      → GPIO 14
  * LDR        → GPIO 34
  */
 
@@ -24,7 +24,7 @@
 #define LED_GREEN  5
 #define DHTPIN     14
 #define LDR_PIN    34
-#define DHTTYPE    DHT22
+#define DHTTYPE    DHT11
 
 // ⚙️ ค่า Threshold — ลองเปลี่ยนดู!
 #define TEMP_THRESHOLD   33.0   // ถ้าร้อนเกินกี่องศา → ไฟแดง
@@ -60,7 +60,7 @@ void loop() {
 
   // ตรวจสอบ DHT22
   if (isnan(temperature) || isnan(humidity)) {
-    Serial.println("❌ อ่าน DHT22 ไม่ได้!");
+    Serial.println("❌ อ่าน DHT11 ไม่ได้!");
     delay(2000);
     return;
   }
